@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 
-int nrep,nhostel,nplace,nregion,nhouse;
+int nrep,nhostel,nplace,nregion,nhouse,nrel;
 
 using namespace std;
 struct per
@@ -15,6 +15,7 @@ struct per
     char rep[2];
     char house[2];
     char region[2];
+    char rel[10];
     char skill[100];
 };
 
@@ -22,7 +23,7 @@ per *top = NULL;
 per *last = NULL;
 char row[20],rowitem[20],value[30],lastrow[20],lastvalue[20];
 
-void mkp(char name[],char hostel[],char gen[],char clas[],char place[],char rep[],char house[])
+void mkp(char name[],char hostel[],char gen[],char clas[],char place[],char rep[],char house[],char rel[])
 {
     per *ptr = new per;
     if(top==NULL&&last==NULL)
@@ -53,6 +54,7 @@ void mkp(char name[],char hostel[],char gen[],char clas[],char place[],char rep[
     strcpy(ptr->house,house);
     strcpy(ptr->gen,gen);
     strcpy(ptr->rep,rep);
+    strcpy(ptr->rel,rel);
    // strcpy(ptr->skill,skill);
 }
 
@@ -86,58 +88,58 @@ void rmp(per *a)
 
 void insertData()
 {
-    mkp("Deon Joshy","Aneeta","M","CSA","Ernakulam","n","T");
-    mkp("Tom Vempala","Aneeta","M","CSA","Kottayam","n","T");
-    mkp("Karthika R","Vimala","F","CSA","Kottayam","n","R");
-    mkp("Poorab Shenoy","MH","M","CSA","Kannur","n","A");
-    mkp("Sahil Sait","Backer","M","CSA","Kannur","n","S");
-    mkp("Royce Elson","RR","M","CSA","Ernakulam","n","R");
-    mkp("Sharat Jacob Jacob","Aneeta","M","CSB","Kottayam","n","S");
-    mkp("Gayathry ","Nava Jyoti","F","CSA","Ernakulam","n","D");
-    mkp("Roy Jose","RR","M","CSA","Ernakulam","n","D");
-    mkp("Navaneeth S Nair","MH","M","CSB","Palakad","n","T");
-    mkp("Vineeth M Vinoy","Aneeta","M","CSA","Ernakulam","n","R");
-    mkp("Anand V","RR","M","CSA","Ernakulam","n","T");
-    mkp("Shimil Abraham","Better Homes","M","CSA","Kozhikode","n","R");
-    mkp("Syyed Anwar","Some other PG","M","CSB","Pathanamthitaa","n","R");
-    mkp("Nayana Vinod","Udaya","F","CSB","Kottayam","n","D");
-    mkp("Tony Augustine","Some other PG","M","CSB","Ernakulam","y","S");
-    mkp("Gokulnath M Prabhu","Some other PG","M","CSB","Alapuzha","n","R");
-    mkp("Aleena Baby","YMCA","F","CSB","Idukki","y","D");
-    mkp("Sidharth S","Some other PG","M","CSA","Idukki","y","S");
-    mkp("Tiss Joseph","YMCA","F","CSB","Kottayam","n","D");
-    mkp("Anjali Rajendran ","Udaya","F","CSA","Kannur","n","D");
-    mkp("Shweta Jayan","YMCA","F","CSA","Thiruvananthapuram","y","T");
-    mkp("Arun Sojan","Some other PG","M","CSB","Kottayam","n","S");
-    mkp("Anjali Parapattu","YMCA","F","CSB","Ernakulam","n","A");
-    mkp("Bharath Raj R","Shamla","M","CSA","Kollam","n","S");
-    mkp("Denin Paul","Aneeta","M","CSB","Thrissur","n","T");
-    mkp("George Sabu","Aneeta","M","CSB","Kottayam","n","T");
-    mkp("Abiram P","Some other PG","M","CSB","Kozhikode","n","A");
-    mkp("Joel Joshua","MH","M","CSA","Kasargode","n","A");
-    mkp("Neeraj Hari","Some other PG","M","CSA","Alapuzha","n","T");
-    mkp("Akhil Prem","Some other PG","M","CSB","Kannur","y","D");
-    mkp("Jomey J James","MH","M","CSB","Thiruvananthapuram","n","A");
-    mkp("Gopika G","Vimala","F","CSB","Kottayam","n","R");
-    mkp("Ashish Mathew Philip","MH","M","CSB","Thiruvananthapuram","n","A");
-    mkp("Sebin Davis","MH","M","CSB","Ernakulam","n","A");
-    mkp("Abraham Jacob","MH","M","CSA","Kannur","y","A");
-    mkp("Deepak Sembakam","Aneeta","M","CSA","Kottayam","y","R");
-    mkp("Balu U R","MH","M","CSB","Malapuram","y","A");
-    mkp("Vikas P Nambiar","MH","M","CSB","Kannur","y","A");
-    mkp("Nikita Menon","Udaya","F","CSB","Thrissur","n","S");
-    mkp("Ansaf Muhammed","MH","M","CSB","Kannur","y","A");
-    mkp("Jerin Tom","RR","M","CSA","Kottayam","n","T");
-    mkp("Anjana Sudevan","YMCA","F","CSA","Kozhikode","n","S");
-    mkp("Nihitha  S","Nava Jyoti","F","CSA","Idukki","n","T");
-    mkp("Meghana O P","Nava Jyoti","F","CSB","Ernakulam","n","T");
-    mkp("Jagath Jijo","Sky Blue","M","CSB","Kottayam","n","T");
-    mkp("Faheem P P ","Shamla","M","CSA","Malapuram","n","D");
-    mkp("Ashwin Girish","MH","M","CSA","Pathanamthitaa","y","A");
-    mkp("Sreeram","MH","M","CSA","Kozhikode","n","A");
-    mkp("Nithin Antony","Aneeta","M","CSB","Alapuzha","n","T");
-    mkp("Govind Gayathri","Aneeta","M","CSA","Thiruvananthapuram","y","A");
-    mkp("Alen J Ninan","RR","M","CSB","Malapuram","n","S");
+    mkp("Deon Joshy","Aneeta","M","CSA","Ernakulam","n","T","christian");
+    mkp("Tom Vempala","Aneeta","M","CSA","Kottayam","n","T","christian");
+    mkp("Karthika R","Vimala","F","CSA","Kottayam","n","R","hindu");
+    mkp("Poorab Shenoy","MH","M","CSA","Kannur","n","A","hindu");
+    mkp("Sahil Sait","Backer","M","CSA","Kannur","n","S","muslim");
+    mkp("Royce Elson","RR","M","CSA","Ernakulam","n","R","christian");
+    mkp("Sharat Jacob Jacob","Aneeta","M","CSB","Kottayam","n","S","christian");
+    mkp("Gayathry ","Nava Jyoti","F","CSA","Ernakulam","n","D","hindu");
+    mkp("Roy Jose","RR","M","CSA","Ernakulam","n","D","christian");
+    mkp("Navaneeth S Nair","MH","M","CSB","Palakad","n","T","hindu");
+    mkp("Vineeth M Vinoy","Aneeta","M","CSA","Ernakulam","n","R","christian");
+    mkp("Anand V","RR","M","CSA","Ernakulam","n","T","hindu");
+    mkp("Shimil Abraham","Better Homes","M","CSA","Kozhikode","n","R","christian");
+    mkp("Syyed Anwar","Some other PG","M","CSB","Pathanamthitaa","n","R","muslim");
+    mkp("Nayana Vinod","Udaya","F","CSB","Kottayam","n","D","hindu");
+    mkp("Tony Augustine","Some other PG","M","CSB","Ernakulam","y","S","christian");
+    mkp("Gokulnath M Prabhu","Some other PG","M","CSB","Alapuzha","n","R","hindu");
+    mkp("Aleena Baby","YMCA","F","CSB","Idukki","y","D","christian");
+    mkp("Sidharth S","Some other PG","M","CSA","Idukki","y","S","hindu");
+    mkp("Tiss Joseph","YMCA","F","CSB","Kottayam","n","D","christian");
+    mkp("Anjali Rajendran ","Udaya","F","CSA","Kannur","n","D","hindu");
+    mkp("Shweta Jayan","YMCA","F","CSA","Thiruvananthapuram","y","T","hindu");
+    mkp("Arun Sojan","Some other PG","M","CSB","Kottayam","n","S","christian");
+    mkp("Anjali Parapattu","YMCA","F","CSB","Ernakulam","n","A","christian");
+    mkp("Bharath Raj R","Shamla","M","CSA","Kollam","n","S","hindu");
+    mkp("Denin Paul","Aneeta","M","CSB","Thrissur","n","T","christian");
+    mkp("George Sabu","Aneeta","M","CSB","Kottayam","n","T","christian");
+    mkp("Abiram P","Some other PG","M","CSB","Kozhikode","n","A","hindu");
+    mkp("Joel Joshua","MH","M","CSA","Kasargode","n","A","christian");
+    mkp("Neeraj Hari","Some other PG","M","CSA","Alapuzha","n","T","hindu");
+    mkp("Akhil Prem","Some other PG","M","CSB","Kannur","y","D","hindu");
+    mkp("Jomey J James","MH","M","CSB","Thiruvananthapuram","n","A","christian");
+    mkp("Gopika G","Vimala","F","CSB","Kottayam","n","R","hindu");
+    mkp("Ashish Mathew Philip","MH","M","CSB","Thiruvananthapuram","n","A","christian");
+    mkp("Sebin Davis","MH","M","CSB","Ernakulam","n","A","christian");
+    mkp("Abraham Jacob","MH","M","CSA","Kannur","y","A","christian");
+    mkp("Deepak Sembakam","Aneeta","M","CSA","Kottayam","y","R","christian");
+    mkp("Balu U R","MH","M","CSB","Malapuram","y","A","hindu");
+    mkp("Vikas P Nambiar","MH","M","CSB","Kannur","y","A","hindu");
+    mkp("Nikita Menon","Udaya","F","CSB","Thrissur","n","S","hindu");
+    mkp("Ansaf Muhammed","MH","M","CSB","Kannur","y","A","muslim");
+    mkp("Jerin Tom","RR","M","CSA","Kottayam","n","T","christian");
+    mkp("Anjana Sudevan","YMCA","F","CSA","Kozhikode","n","S","hindu");
+    mkp("Nihitha  S","Nava Jyoti","F","CSA","Idukki","n","T","hindu");
+    mkp("Meghana O P","Nava Jyoti","F","CSB","Ernakulam","n","T","hindu");
+    mkp("Jagath Jijo","Sky Blue","M","CSB","Kottayam","n","T","hindu");
+    mkp("Faheem P P ","Shamla","M","CSA","Malapuram","n","D","muslim");
+    mkp("Ashwin Girish","MH","M","CSA","Pathanamthitaa","y","A","hindu");
+    mkp("Sreeram","MH","M","CSA","Kozhikode","n","A","hindu");
+    mkp("Nithin Antony","Aneeta","M","CSB","Alapuzha","n","T","christian");
+    mkp("Govind Gayathri","Aneeta","M","CSA","Thiruvananthapuram","y","A","hindu");
+    mkp("Alen J Ninan","RR","M","CSB","Malapuram","n","S","christian");
     }
 
 int count()
@@ -217,6 +219,25 @@ ptr=top;
         int c=0;
         while(pp!=NULL)
         {
+            if(strcmp(pp->rel,ptr->rel)==0)
+            c++;
+            pp=pp->next;
+        }
+        if((abs(half-c)<=max)&&(strcmp(lastrow,"rel")!=0)&&(strcmp(lastvalue,ptr->rel)!=0)&&(nrel!=0))
+            {
+                max=abs(half-c);
+                strcpy(row,"rel");
+                strcpy(value,ptr->rel);
+            }
+            ptr=ptr->next;
+    }
+ptr=top;
+    while(ptr!=NULL)
+    {
+        per *pp=top;
+        int c=0;
+        while(pp!=NULL)
+        {
             if(strcmp(pp->rep,ptr->rep)==0)
             c++;
             pp=pp->next;
@@ -241,7 +262,7 @@ ptr=top;
             c++;
             pp=pp->next;
         }
-        if((abs(half-c)<=max)&&(strcmp(lastrow,"place")!=0)&&(strcmp(lastvalue,ptr->place)!=0)&&(nplace!=0))
+        if((abs(half-c)<=max)&&(strcmp(lastvalue,ptr->place)!=0)&&(nplace!=0))
             {
                 max=abs(half-c);
                 strcpy(row,"place");
@@ -272,6 +293,7 @@ int main()
     nplace=1;
     nregion=1;
     nhouse=1;
+    nrel=1;
     top=NULL;
     last=NULL;
     insertData();
@@ -356,6 +378,36 @@ int main()
                 for(person=top;person!=NULL;person=person->next)
                 {
                     if(strcmp(person->hostel,value)==0)
+                    {
+                        rmp(person);
+                    }
+                }
+            }
+        }
+        else if(strcmp(row,"rel")==0)
+        {
+            cout<<"Is "<<da<<" a "<<value<<" ?"<<endl;
+            cin>>x;
+            if(x=='y')
+            {
+                nrel=0;
+                for(person=top;person!=NULL;person=person->next)
+                {
+                    if(strcmp(person->rel,value)!=0)
+                    {
+                        rmp(person);
+                    }
+                }
+            }
+            else if(x=='d')
+            {
+                nrel=0;
+            }
+            else
+            {
+                for(person=top;person!=NULL;person=person->next)
+                {
+                    if(strcmp(person->rel,value)==0)
                     {
                         rmp(person);
                     }
@@ -501,11 +553,12 @@ int main()
                 }
             }
         }
-   /*     for(person=top;person!=NULL;person=person->next)
-        {
-       cout<<person->name<<" "<<person->rep<<"\n";
-        }*/
+      /*  for(person=top;person!=NULL;person=person->next)
+        { 
+       cout<<person->name<<" "<<person->rel<<"\n";
+        } //To here  */
    }
+
    if(strcmp(row,"done")!=0)
    {
       cout<<"\n\nYou were thinking of :"<<top->name<<endl<<endl;

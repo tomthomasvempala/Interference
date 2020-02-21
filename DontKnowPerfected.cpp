@@ -74,7 +74,7 @@ void rmp(per *a)
     else if(a==top&&a==last)
     {
         cout<<"Something's wrong";
-        exit(0);
+       // exit(0);
     }
     else
     {
@@ -344,7 +344,7 @@ int main()
         }
     }
     //findrow();
- /*  for(person=top;person!=NULL;person=person->next)
+  /* for(person=top;person!=NULL;person=person->next)
     {
        cout<<person->name<<"\n";
     }*/
@@ -352,6 +352,10 @@ int main()
   while(count()!=1)
    {
         findrow();
+       /* for(person=top;person!=NULL;person=person->next)
+    {
+       cout<<person->name<<"\n";
+    }*/
         if(strcmp(row,"done")==0)
             break;
         else if(strcmp(row,"hostel")==0)
@@ -369,11 +373,8 @@ int main()
                     }
                 }
             }
-            else if(x=='d')
-            {
-                nhostel=0;
-            }
-            else
+            
+            else if(x=='n')
             {
                 for(person=top;person!=NULL;person=person->next)
                 {
@@ -382,6 +383,10 @@ int main()
                         rmp(person);
                     }
                 }
+            }
+            else 
+            {
+                nhostel=0;
             }
         }
         else if(strcmp(row,"rel")==0)
@@ -399,11 +404,7 @@ int main()
                     }
                 }
             }
-            else if(x=='d')
-            {
-                nrel=0;
-            }
-            else
+            else if(x=='n')
             {
                 for(person=top;person!=NULL;person=person->next)
                 {
@@ -413,6 +414,11 @@ int main()
                     }
                 }
             }
+            else
+            {
+                nrel=0;
+            }
+            
         }
         else if(strcmp(row,"place")==0)
         {
@@ -429,11 +435,7 @@ int main()
                     }
                 }
             }
-            else if(x=='d')
-            {
-                nplace=0;
-            }
-            else
+            else if(x=='n')
             {
                 for(person=top;person!=NULL;person=person->next)
                 {
@@ -443,6 +445,11 @@ int main()
                     }
                 }
             }
+            else 
+            {
+                nplace=0;
+            }
+            
         }
         else if(strcmp(row,"region")==0)
         {
@@ -465,11 +472,7 @@ int main()
                     }
                 }
             }
-            else if(x=='d')
-            {
-                nregion=0;
-            }
-            else
+            else if(x=='n')
             {
                 for(person=top;person!=NULL;person=person->next)
                 {
@@ -479,6 +482,11 @@ int main()
                     }
                 }
             }
+            else 
+            {
+                nregion=0;
+            }
+            
         }
         else if(strcmp(row,"house")==0)
         {
@@ -505,11 +513,7 @@ int main()
                     }
                 }
             }
-            else if(x=='d')
-            {
-                nhouse=0;
-            }
-            else
+            else if(x=='n')
             {
                 for(person=top;person!=NULL;person=person->next)
                 {
@@ -519,6 +523,11 @@ int main()
                     }
                 }
             }
+            else 
+            {
+                nhouse=0;
+            }
+            
         }
         else if(strcmp(row,"rep")==0)
         {
@@ -531,29 +540,30 @@ int main()
                 {
                     if(strcmp(person->rep,"y")!=0)
                     {
-                //        cout<<person->name<<" "<<person->rep<<" To be deleted"<<endl; //tobedeleted
+                      //  cout<<person->name<<" "<<person->rep<<" To be deleted"<<endl; //tobedeleted
                         rmp(person);
                     }
                 }
             }
-            else if(x=='d')
-            {
-                nrep=0;
-            }
-            else
+            else if(x=='n')
             {
                 nrep=0;
                 for(person=top;person!=NULL;person=person->next)
                 {
-                    if(strcmp(person->rep,"n")!=0)
+                  if(strcmp(person->rep,"n")!=0)
                     {
-            //            cout<<person->name<<" "<<person->rep<<" To be deleted"<<endl; //tobedeleted
+            //           cout<<person->name<<" "<<person->rep<<" To be deleted"<<endl; //tobedeleted
                         rmp(person);
                     }
                 }
             }
+            else 
+            {
+                nrep=0;
+            }
+            
         }
-      /*  for(person=top;person!=NULL;person=person->next)
+    /*   for(person=top;person!=NULL;person=person->next)
         { 
        cout<<person->name<<" "<<person->rel<<"\n";
         } //To here  */
@@ -564,7 +574,7 @@ int main()
       cout<<"\n\nYou were thinking of :"<<top->name<<endl<<endl;
    }
 
-   cout<<"Do you want to contiune? (y/n)"<<endl;
+   cout<<"Do you want to continue? (y/n)"<<endl;
    cin>>choice;
     }while(choice=='Y' || choice=='y');
 

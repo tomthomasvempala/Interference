@@ -189,7 +189,7 @@ mkp("Pranoy Santhosh M","NIL","M","CSB","Ernakulam","y","D","hindu","y","n","y",
 mkp("Aldrin Jenson","NIL","M","CSB","Ernakulam","n","T","christian","y","n","y","y","n");
 mkp("Muhammed Razeen V","NIL","M","CSB","Ernakulam","n","R","muslim","y","n","y","y","n");
 mkp("Nevin Manoj","NIL","M","CSB","Ernakulam","n","R","hindu","y","n","y","y","n");
-mkp("V S Sreeram ","NIL","M","CSB","Ernakulam","y","R","hindu","y","n","y","y","n");
+mkp("V S Sreeram ","NIL","M","CSB","Ernakulam","y","R","hindu","y","n","y","n","n");
 mkp("Pranav H. Nair ","NIL","M","CSB","Ernakulam","n","D","hindu","y","y","y","y","n");
 mkp("Tony Augustine","NIL","M","CSB","Ernakulam","y","S","christian","y","n","y","y","n");
 mkp("Adithya Anilkumar","NIL","M","CSB","Ernakulam","n","A","hindu","y","y","y","y","n");
@@ -229,7 +229,7 @@ void findrow()
             c++;
             pp=pp->next;
         }
-        if((abs(half-c)<max)&&(strcmp(lastrow,"hostel")!=0)&&(strcmp(lastvalue,ptr->hostel)!=0)&&(nhostel!=0))
+        if((abs(half-c)<max)&&(strcmp(lastrow,"hostel")!=0)&&(strcmp(lastvalue,ptr->hostel)!=0)&&(nhostel!=0) && strcmp(ptr->hostel,"NIL")!=0)
             {
                 max=abs(half-c);
                 strcpy(row,"hostel");
@@ -640,7 +640,6 @@ int main()
                     }
                 }
             }
-            
             else if(x=='n')
             {
                 if(strcmp(regg,"Male")==0)
@@ -730,9 +729,10 @@ int main()
             cin>>x;    
             if(x=='y')
             {
+                nplace=0;
                 for(person=top;person!=NULL;person=person->next)
                 {
-                if(strcmp(person->region,value)==0)
+                if(strcmp(person->place,value)!=0)
                     {
                          rmp(person);
                     }

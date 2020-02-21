@@ -193,7 +193,7 @@ mkp("Krishnendu Nambiar","NIL","F","CSB","Ernakulam","n","T","hindu","y");
 mkp("Devanarayan J","NIL","M","CSB","Ernakulam","n","R","hindu","y");
 mkp("Nikita Menon","NIL","F","CSB","Ernakulam","n","S","hindu","y");
 mkp("Farhath Sulthana Jamal","NIL","F","CSB","Ernakulam","y","D","muslim","y");
-//cout<<"holaaaaa"<<endl;
+
 
     }
 
@@ -221,7 +221,7 @@ void findrow()
             c++;
             pp=pp->next;
         }
-        if((abs(half-c)<=max)&&(strcmp(lastrow,"hostel")!=0)&&(strcmp(lastvalue,ptr->hostel)!=0)&&(nhostel!=0))
+        if((abs(half-c)<max)&&(strcmp(lastrow,"hostel")!=0)&&(strcmp(lastvalue,ptr->hostel)!=0)&&(nhostel!=0))
             {
                 max=abs(half-c);
                 strcpy(row,"hostel");
@@ -240,7 +240,7 @@ void findrow()
             c++;
             pp=pp->next;
         }
-        if((abs(half-c)<=max)&&(strcmp(lastrow,"house")!=0)&&(strcmp(lastvalue,ptr->house)!=0)&&(nhouse!=0))
+        if((abs(half-c)<max)&&(strcmp(lastrow,"house")!=0)&&(strcmp(lastvalue,ptr->house)!=0)&&(nhouse!=0))
             {
                 max=abs(half-c);
                 strcpy(row,"house");
@@ -259,7 +259,7 @@ void findrow()
             c++;
             pp=pp->next;
         }
-        if((abs(half-c)<=max)&&(strcmp(lastrow,"clas")!=0)&&(strcmp(lastvalue,ptr->clas)!=0)&&(nclas!=0))
+        if((abs(half-c)<max)&&(strcmp(lastrow,"clas")!=0)&&(strcmp(lastvalue,ptr->clas)!=0)&&(nclas!=0))
             {
                 max=abs(half-c);
                 strcpy(row,"clas");
@@ -278,7 +278,7 @@ ptr=top;
             c++;
             pp=pp->next;
         }
-        if((abs(half-c)<=max)&&(strcmp(lastrow,"gen")!=0)&&(strcmp(lastvalue,ptr->gen)!=0)&&(ngen!=0))
+        if((abs(half-c)<max)&&(strcmp(lastrow,"gen")!=0)&&(strcmp(lastvalue,ptr->gen)!=0)&&(ngen!=0))
             {
                 max=abs(half-c);
                 strcpy(row,"gen");
@@ -297,7 +297,7 @@ ptr=top;
             c++;
             pp=pp->next;
         }
-        if((abs(half-c)<=max)&&(strcmp(lastrow,"region")!=0)&&(strcmp(lastvalue,ptr->region)!=0)&&(nregion!=0))
+        if((abs(half-c)<max)&&(strcmp(lastrow,"region")!=0)&&(strcmp(lastvalue,ptr->region)!=0)&&(nregion!=0))
             {
                 max=abs(half-c);
                 strcpy(row,"region");
@@ -316,7 +316,7 @@ ptr=top;
             c++;
             pp=pp->next;
         }
-        if((abs(half-c)<=max)&&(strcmp(lastrow,"ds")!=0)&&(strcmp(lastvalue,ptr->ds)!=0)&&(nds!=0))
+        if((abs(half-c)<max)&&(strcmp(lastrow,"ds")!=0)&&(strcmp(lastvalue,ptr->ds)!=0)&&(nds!=0))
             {
                 max=abs(half-c);
                 strcpy(row,"ds");
@@ -336,7 +336,7 @@ ptr=top;
             c++;
             pp=pp->next;
         }
-        if((abs(half-c)<=max)&&(strcmp(lastrow,"rel")!=0)&&(strcmp(lastvalue,ptr->rel)!=0)&&(nrel!=0))
+        if((abs(half-c)<max)&&(strcmp(lastrow,"rel")!=0)&&(strcmp(lastvalue,ptr->rel)!=0)&&(nrel!=0))
             {
                 max=abs(half-c);
                 strcpy(row,"rel");
@@ -355,7 +355,7 @@ ptr=top;
             c++;
             pp=pp->next;
         }
-        if((abs(half-c)<=max)&&(strcmp(lastrow,"rep")!=0)&&(strcmp(lastvalue,ptr->rep)!=0)&&(nrep!=0))
+        if((abs(half-c)<max)&&(strcmp(lastrow,"rep")!=0)&&(strcmp(lastvalue,ptr->rep)!=0)&&(nrep!=0))
             {
                 max=abs(half-c);
                 strcpy(row,"rep");
@@ -375,7 +375,7 @@ ptr=top;
             c++;
             pp=pp->next;
         }
-        if((abs(half-c)<=max)&&(strcmp(lastvalue,ptr->place)!=0)&&(nplace!=0))
+        if((abs(half-c)<max)&&(strcmp(lastvalue,ptr->place)!=0)&&(nplace!=0))
             {
                 max=abs(half-c);
                 strcpy(row,"place");
@@ -489,19 +489,9 @@ int main()
         }
     }
     }
-    //findrow();
-  /* for(person=top;person!=NULL;person=person->next)
-    {
-       cout<<person->name<<"\n";
-    }*/
-  //  cout<<"People: :"<<count()<<endl;
   while(count()!=1)
    {
         findrow();
-        for(person=top;person!=NULL;person=person->next)
-    {
-       cout<<person->name<<"\n";
-    }
         if(strcmp(row,"done")==0)
             break;
         else if(strcmp(row,"clas")==0)
@@ -546,7 +536,10 @@ int main()
             if(x=='y')
             {
                 ngen=0;
-                
+                if(strcmp(regg,"Male")==0)
+                     strcpy(da,"he");
+                else    
+                     strcpy(da,"she");
                 for(person=top;person!=NULL;person=person->next)
                 {
                     if(strcmp(person->gen,value)!=0)
@@ -558,6 +551,10 @@ int main()
             
             else if(x=='n')
             {
+                if(strcmp(regg,"Male")==0)
+                     strcpy(da,"she");
+                else    
+                     strcpy(da,"he");
                 for(person=top;person!=NULL;person=person->next)
                 {
                     if(strcmp(person->gen,value)==0)
@@ -755,7 +752,6 @@ int main()
                 {
                     if(strcmp(person->rep,"y")!=0)
                     {
-                      //  cout<<person->name<<" "<<person->rep<<" To be deleted"<<endl; //tobedeleted
                         rmp(person);
                     }
                 }
@@ -766,8 +762,7 @@ int main()
                 for(person=top;person!=NULL;person=person->next)
                 {
                   if(strcmp(person->rep,"n")!=0)
-                    {
-            //           cout<<person->name<<" "<<person->rep<<" To be deleted"<<endl; //tobedeleted
+                    {}
                         rmp(person);
                     }
                 }
@@ -791,7 +786,6 @@ int main()
                 {
                     if(strcmp(person->ds,"y")!=0)
                     {
-                      //  cout<<person->name<<" "<<person->rep<<" To be deleted"<<endl; //tobedeleted
                         rmp(person);
                     }
                 }
@@ -803,7 +797,6 @@ int main()
                 {
                   if(strcmp(person->ds,"n")!=0)
                     {
-            //           cout<<person->name<<" "<<person->rep<<" To be deleted"<<endl; //tobedeleted
                         rmp(person);
                     }
                 }

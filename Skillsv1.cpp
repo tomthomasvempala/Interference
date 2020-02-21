@@ -150,6 +150,9 @@ void insertData()
     mkp("Nithin Antony","Aneeta","M","CSB","Alapuzha","n","T","christian","n","n","n","n","n");
     mkp("Govind Gayathri","Aneeta","M","CSA","Thiruvananthapuram","y","A","hindu","n","n","y","n","y");
     mkp("Alen J Ninan","RR","M","CSB","Malapuram","n","S","christian","n","n","n","n","n");
+    mkp("Muflih Ali K P","Better Homes","M","CSB","Kozhikode","n","S","muslim","n","n","n","n","n");
+    mkp("Sreelal K","Some other PG ","M","CSB","Malapuram","n","R","hindu","n","n","n","n","n");
+
     ///DS
     mkp("Gokul Sagar","NIL","M","CSA","Ernakulam","n","T","hindu","y","n","y","y","n");
 mkp("Khushi Shah","NIL","F","CSA","Ernakulam","n","S","hindu","y","n","y","y","n");
@@ -642,6 +645,7 @@ int main()
             }
             else if(x=='n')
             {
+                ngen=0;
                 if(strcmp(regg,"Male")==0)
                      strcpy(da,"she");
                 else    
@@ -662,8 +666,9 @@ int main()
         else if(strcmp(row,"hostel")==0)
         {
             if(strcmp(value,"Some other PG")==0)
-                strcpy(value,"any PG other than RR");
-            cout<<"Does "<<da<<" stay at "<<value<<" ?"<<endl;
+                cout<<"Does "<<da<<" stay at any PG other than RR"<<endl;
+            else
+                cout<<"Does "<<da<<" stay at "<<value<<" ?"<<endl;
             cin>>x;
             if(x=='y')
             {
@@ -708,7 +713,7 @@ int main()
                 }
             }
             else if(x=='n')
-            {
+            {       ngen=0;
                 for(person=top;person!=NULL;person=person->next)
                 {
                     if(strcmp(person->rel,value)==0)
@@ -926,10 +931,7 @@ int main()
                     }
                 }
             }
-            else 
-            {
-                nspecs=0;
-            }
+            
             
         }
     else if(strcmp(row,"singer")==0)
@@ -1028,10 +1030,7 @@ int main()
             }
             
         }
-    /*  for(person=top;person!=NULL;person=person->next)
-        { 
-      cout<<person->name<<" "<<person->rel<<"\n";
-        } //To here  */
+    /*  for(pvalueo here  */
    }
 
    if(strcmp(row,"done")!=0)

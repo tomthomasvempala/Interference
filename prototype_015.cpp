@@ -238,7 +238,7 @@ void findrow()
                 c++;
             pp = pp->next;
         }
-        if ((abs(half - c) <= max) && (strcmp(lastrow, "hostel") != 0) && (strcmp(lastvalue, ptr->hostel) != 0) && (nhostel != 0) && strcmp(ptr->hostel, "NIL") != 0)
+        if ((abs(half - c) <= max) && (nhostel != 0) && strcmp(ptr->hostel, "NIL") != 0)
         {
             max = abs(half - c);
             strcpy(row, "hostel");
@@ -257,7 +257,7 @@ void findrow()
                 c++;
             pp = pp->next;
         }
-        if ((abs(half - c) <= max) && (strcmp(lastrow, "house") != 0) && (strcmp(lastvalue, ptr->house) != 0) && (nhouse != 0))
+        if ((abs(half - c) <= max)&& (nhouse != 0))
         {
             max = abs(half - c);
             strcpy(row, "house");
@@ -295,7 +295,7 @@ void findrow()
                 c++;
             pp = pp->next;
         }
-        if ((abs(half - c) <= max) && (strcmp(lastrow, "clas") != 0) && (strcmp(lastvalue, ptr->clas) != 0) && (nclas != 0))
+        if ((abs(half - c) <= max)&& (nclas != 0))
         {
             max = abs(half - c);
             strcpy(row, "clas");
@@ -314,7 +314,7 @@ void findrow()
                 c++;
             pp = pp->next;
         }
-        if ((abs(half - c) <= max) && (strcmp(lastrow, "gen") != 0) && (strcmp(lastvalue, ptr->gen) != 0) && (ngen != 0))
+        if ((abs(half - c) <= max) && (ngen != 0))
         {
             max = abs(half - c);
             strcpy(row, "gen");
@@ -333,7 +333,7 @@ void findrow()
                 c++;
             pp = pp->next;
         }
-        if ((abs(half - c) <= max) && (strcmp(lastrow, "region") != 0) && (strcmp(lastvalue, ptr->region) != 0) && (nregion != 0))
+        if ((abs(half - c) <= max) && (nregion != 0))
         {
             max = abs(half - c);
             strcpy(row, "region");
@@ -352,7 +352,7 @@ void findrow()
                 c++;
             pp = pp->next;
         }
-        if ((abs(half - c) <= max) && (strcmp(lastrow, "ds") != 0) && (strcmp(lastvalue, ptr->ds) != 0) && (nds != 0))
+        if ((abs(half - c) <= max)  && (nds != 0))
         {
             max = abs(half - c);
             strcpy(row, "ds");
@@ -372,7 +372,7 @@ void findrow()
                 c++;
             pp = pp->next;
         }
-        if ((abs(half - c) <= max) && (strcmp(lastrow, "rel") != 0) && (strcmp(lastvalue, ptr->rel) != 0) && (nrel != 0))
+        if ((abs(half - c) <= max) && (nrel != 0))
         {
             max = abs(half - c);
             strcpy(row, "rel");
@@ -391,7 +391,7 @@ void findrow()
                 c++;
             pp = pp->next;
         }
-        if ((abs(half - c) <= max) && (strcmp(lastrow, "rep") != 0) && (strcmp(lastvalue, ptr->rep) != 0) && (nrep != 0))
+        if ((abs(half - c) <= max) &&  (nrep != 0))
         {
             max = abs(half - c);
             strcpy(row, "rep");
@@ -410,7 +410,7 @@ void findrow()
                 c++;
             pp = pp->next;
         }
-        if ((abs(half - c) <= max) && (strcmp(lastvalue, ptr->place) != 0) && (nplace != 0))
+        if ((abs(half - c) <= max) && (nplace != 0))
         {
             max = abs(half - c);
             strcpy(row, "place");
@@ -429,7 +429,7 @@ void findrow()
                 c++;
             pp = pp->next;
         }
-        if ((abs(half - c) <= max) && (strcmp(lastrow, "specs") != 0) && (strcmp(lastvalue, ptr->specs) != 0) && (nspecs != 0))
+        if ((abs(half - c) <= max) && (nspecs != 0))
         {
             max = abs(half - c);
             strcpy(row, "specs");
@@ -449,7 +449,7 @@ void findrow()
                 c++;
             pp = pp->next;
         }
-        if ((abs(half - c) <= max) && (strcmp(lastrow, "singer") != 0) && (strcmp(lastvalue, ptr->singer) != 0) && (nsinger != 0))
+        if ((abs(half - c) <= max)  && (nsinger != 0))
         {
             max = abs(half - c);
             strcpy(row, "singer");
@@ -469,7 +469,7 @@ void findrow()
                 c++;
             pp = pp->next;
         }
-        if ((abs(half - c) <= max) && (strcmp(lastrow, "dancer") != 0) && (strcmp(lastvalue, ptr->dancer) != 0) && (ndancer != 0))
+        if ((abs(half - c) <= max) && (ndancer != 0))
         {
             max = abs(half - c);
             strcpy(row, "dancer");
@@ -489,7 +489,7 @@ void findrow()
                 c++;
             pp = pp->next;
         }
-        if ((abs(half - c) <= max) && (strcmp(lastrow, "programmer") != 0) && (strcmp(lastvalue, ptr->programmer) != 0) && (nprogrammer != 0))
+        if ((abs(half - c) <= max) && (nprogrammer != 0))
         {
             max = abs(half - c);
             strcpy(row, "programmer");
@@ -503,9 +503,9 @@ void findrow()
         cout << "Insufficient Data" << endl;
         strcpy(row, "done");
     }
-    strcpy(lastrow, row);
-    strcpy(lastvalue, value);
-    cout<<"Best row: "<<row<<endl<<"Value: "<<value<<endl<<"delta: "<<max<<endl;
+   // strcpy(lastrow, row);
+   //strcpy(lastvalue, value);
+   //cout<<"Best row: "<<row<<endl<<"Value: "<<value<<endl<<"delta: "<<max<<endl;
 }
 
 int main()

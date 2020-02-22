@@ -762,7 +762,7 @@ int main()
                 for(person=top;person!=NULL;person=person->next)
                 {
                   if(strcmp(person->rep,"n")!=0)
-                    {}
+                    {
                         rmp(person);
                     }
                 }

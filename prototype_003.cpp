@@ -18,7 +18,7 @@ struct per
 
 per *top = NULL;
 per *last = NULL;
-char row[20],rowitem[20],value[20],lastrow[20],lastvalue[20];
+char row[20],rowitem[20],value[20];
 
 void mkp(char name[],char hostel[],char gen[],char clas[],char place[],char rep[],char house[])
 {
@@ -79,10 +79,10 @@ void rmp(per *a)
 
 void insertData()
 {
-    mkp("Deon Joshy","Aneeta","M","CSA","Ernakulam","n","T");
+    mkp( "Deon Joshy","Aneeta","M","CSA","Ernakulam","n","T");
     mkp("Tom Vempala","Aneeta","M","CSA","Kottayam","n","T");
     mkp("Karthika R","Vimala","F","CSA","Kottayam","n","R");
-    mkp("Poorab Shenoy","MH","M","CSA","Kannur","n","A");
+    mkp("Poorab shenoy","MH","M","CSA","Kannur","n","A");
     mkp("Sahil Sait","Backer","M","CSA","Kannur","n","S");
     mkp("Royce Elson","RR","M","CSA","Ernakulam","n","R");
     mkp("Sharat Jacob Jacob","Aneeta","M","CSB","Kottayam","n","S");    
@@ -99,7 +99,7 @@ void insertData()
     mkp("Sidharth S","Some other PG","M","CSA","Idukki","y","S");
     mkp("Tiss Joseph","YMCA","F","CSB","Kottayam","n","D");
     mkp("Anjali Rajendran ","Udaya","F","CSA","Kannur","n","D");
-    mkp("Shweta Jayan","YMCA","F","CSA","Thiruvananthapuram","y","T");
+    mkp("Shweta jayan","YMCA","F","CSA","Thiruvananthapuram","y","T");
     mkp("Arun Sojan","Some other PG","M","CSB","Kottayam","n","S");
     mkp("Anjali Parapattu","YMCA","F","CSB","Ernakulam","n","A");
     mkp("Bharath Raj R","Shamla","M","CSA","Kollam","n","S");
@@ -143,7 +143,7 @@ void findrow()
     per *ptr;
     ptr=top;
     int max=10000,half=count()/2;
-    //cout<<half;
+    cout<<half;
     while(ptr!=NULL)
     {
         per *pp=top;
@@ -154,7 +154,7 @@ void findrow()
             c++;
             pp=pp->next;
         }
-        if((abs(half-c)<=max)&&(strcmp(lastrow,"hostel")!=0)&&(strcmp(lastvalue,ptr->hostel)!=0))
+        if(abs(half-c)<=max)
             {
                 max=half-c;
                 strcpy(row,"hostel");
@@ -173,7 +173,7 @@ void findrow()
             c++;
             pp=pp->next;
         }
-        if((abs(half-c)<=max)&&(strcmp(lastrow,"house")!=0)&&(strcmp(lastvalue,ptr->house)!=0))
+        if(abs(half-c)<max)
             {
                 max=half-c;
                 strcpy(row,"house");
@@ -192,7 +192,7 @@ ptr=top;
             c++;
             pp=pp->next;
         }
-        if((abs(half-c)<=max)&&(strcmp(lastrow,"region")!=0)&&(strcmp(lastvalue,ptr->region)!=0))
+        if(abs(half-c)<max)
             {
                 max=half-c;
                 strcpy(row,"region");
@@ -211,7 +211,7 @@ ptr=top;
             c++;
             pp=pp->next;
         }
-        if((abs(half-c)<=max)&&(strcmp(lastrow,"rep")!=0)&&(strcmp(lastvalue,ptr->rep)!=0))
+        if(abs(half-c)<max)
             {
                 max=half-c;
                 strcpy(row,"rep");
@@ -219,38 +219,16 @@ ptr=top;
             }
             ptr=ptr->next;
     }
-ptr=top;
-    while(ptr!=NULL)
-    {
-        per *pp=top;
-        int c=0;
-        while(pp!=NULL)
-        {
-            if(strcmp(pp->place,ptr->place)==0)
-            c++;
-            pp=pp->next;
-        }
-        if((abs(half-c)<=max)&&(strcmp(lastrow,"place")!=0)&&(strcmp(lastvalue,ptr->place)!=0))
-            {
-                max=half-c;
-                strcpy(row,"place");
-                strcpy(value,ptr->place);
-            }
-            ptr=ptr->next;
-    }
-    strcpy(lastrow,row);
-    strcpy(lastvalue,value);
-
-    //cout<<"Best row: "<<row<<endl<<"Value: "<<value<<endl<<"delta: "<<max<<endl;
+    cout<<"Best row: "<<row<<endl<<"Value: "<<value<<endl<<"delta: "<<max<<endl;
 
 }
 
 int main()
 {
-    char x,da[4],regg[10]="North";
+    char x,da[4];
     per *person;
     insertData();
-    cout<<"Is it a Boy?";
+    cout<<"Boy?";
     cin>>x;
     if(x=='y')
     {
@@ -274,7 +252,7 @@ int main()
                 }
         }
     }
-    cout<<"Does "<<da<<" study in CSA?";
+     cout<<"CSA?";
     cin>>x;
     if(x=='y')
     {
@@ -297,14 +275,15 @@ int main()
         }
     }
     //findrow();
-  /*  for(person=top;person!=NULL;person=person->next)
+    for(person=top;person!=NULL;person=person->next)
     {
        cout<<person->name<<"\n";
     }
-    cout<<"People: :"<<count()<<endl;*/
-  while(count()!=1)
-   {
-        findrow(); cout<<count()<<" "<<row<<" "<<value<<endl;
+    cout<<"People: :"<<count()<<endl;
+    findrow();
+//  while(count()!=1)
+  //  {
+        findrow();
         if(strcmp(row,"hostel")==0)
         {
             cout<<"Does "<<da<<" stay at "<<value<<" ?";
@@ -330,102 +309,10 @@ int main()
                 }
             }
         }
-        else if(strcmp(row,"place")==0)
-        {
-            cout<<"Is "<<da<<"  from "<<value<<" ?";
-            cin>>x;
-            if(x=='y')
-            {
-                for(person=top;person!=NULL;person=person->next)
-                {
-                    if(strcmp(person->place,value)!=0)
-                    {
-                        rmp(person);
-                    }
-                }
-            }
-            else
-            {
-                for(person=top;person!=NULL;person=person->next)
-                {
-                    if(strcmp(person->place,value)==0)
-                    {
-                        rmp(person);
-                    }
-                }
-            }
-        }
-        else if(strcmp(row,"region")==0)
-        {
-            if(strcmp(value,"M")==0)
-                strcpy(regg,"Middle");
-            else if(strcmp(value,"N")==0)
-                strcpy(regg,"North");
-            else
-                strcpy(regg,"South");
-            cout<<"Is "<<da<<" from "<<regg<<" Kerala?";
-            cin>>x;
-            if(x=='y')
-            {
-                for(person=top;person!=NULL;person=person->next)
-                {
-                    if(strcmp(person->region,value)!=0)
-                    {
-                        rmp(person);
-                    }
-                }
-            }
-            else
-            {
-                for(person=top;person!=NULL;person=person->next)
-                {
-                    if(strcmp(person->region,value)==0)
-                    {
-                        rmp(person);
-                    }
-                }
-            }
-        }
-        else if(strcmp(row,"house")==0)
-        {
-            if(strcmp(value,"T")==0)
-                strcpy(regg,"Thandava");
-            else if(strcmp(value,"S")==0)
-                strcpy(regg,"Samhara");
-            else if(strcmp(value,"R")==0)
-                strcpy(regg,"Rakshasa");
-            else if(strcmp(value,"D")==0)
-                strcpy(regg,"Dhruva");
-            else
-                strcpy(regg,"Aryans");
-            cout<<"Is "<<da<<" a memeber of "<<regg<<" House?";
-            cin>>x;
-            if(x=='y')
-            {
-                for(person=top;person!=NULL;person=person->next)
-                {
-                    if(strcmp(person->house,value)!=0)
-                    {
-                        rmp(person);
-                    }
-                }
-            }
-            else
-            {
-                for(person=top;person!=NULL;person=person->next)
-                {
-                    if(strcmp(person->house,value)==0)
-                    {
-                        rmp(person);
-                    }
-                }
-            }
-        }
         for(person=top;person!=NULL;person=person->next)
-        {
+    {
        cout<<person->name<<"\n";
-        }
-   }
-   
+    }
+//    }
     return 0;
 }
